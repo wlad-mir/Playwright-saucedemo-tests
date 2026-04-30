@@ -1,40 +1,40 @@
 import { test, expect } from '@playwright/test';
+import { LoginPage } from './pages/LoginPage';
 
-test.describe('Login negative tests', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('https://www.saucedemo.com/');
-  });
+test.beforeEach(async ({ page }) => {
+  await page.goto('https://www.saucedemo.com/');
+});
 
-  test('error on incorrect password', async ({ page }) => {
-    await page.getByPlaceholder('Username').fill('standard_user');
-    await page.getByPlaceholder('Password').fill('wrong_password');
-    await page.getByRole('button', { name: 'Login' }).click();
-    await expect.soft(page.locator('[data-test="error"]')).toBeVisible();
-    await expect
-      .soft(page.locator('[data-test="error"]'))
-      .toContainText('Epic sadface: Username and password do not match any user in this service');
-    await expect.soft(page).not.toHaveURL(/inventory/);
-  });
+test('error on incorrect password', async ({ page }) => {
+  const login = new LoginPage(page);
 
-  test('error on incorrect usernamer', async ({ page }) => {
-    await page.getByPlaceholder('Username').fill('wrong_user');
-    await page.getByPlaceholder('Password').fill('secret_sauce');
-    await page.getByRole('button', { name: 'Login' }).click();
-    await expect.soft(page.locator('[data-test="error"]')).toBeVisible();
-    await expect
-      .soft(page.locator('[data-test="error"]'))
-      .toContainText('Epic sadface: Username and password do not match any user in this service');
-    await expect.soft(page).not.toHaveURL(/inventory/);
-  });
+  await login.login('standard_user', 'wrong_password');
 
-  test('error on empty fields', async ({ page }) => {
-    await page.getByPlaceholder('Username').fill('');
-    await page.getByPlaceholder('Password').fill('');
-    await page.getByRole('button', { name: 'Login' }).click();
-    await expect.soft(page.locator('[data-test="error"]')).toBeVisible();
-    await expect
-      .soft(page.locator('[data-test="error"]'))
-      .toContainText('Epic sadface: Username is required');
-    await expect.soft(page).not.toHaveURL(/inventory/);
-  });
+  await expect(login.error).toBeVisible();
+  await expect(login.error).toContainText(
+    'Epic sadface: Username and password do not match any user in this service',
+  );
+  await expect(page).not.toHaveURL(/inventory/);
+});
+
+test('error on incorrect username', async ({ page }) => {
+  const login = new LoginPage(page);
+
+  await login.login('wrong_user', 'secret_sauce');
+
+  await expect(login.error).toBeVisible();
+  await expect(login.error).toContainText(
+    'Epic sadface: Username and password do not match any user in this service',
+  );
+  await expect(page).not.toHaveURL(/inventory/);
+});
+
+test('error on empty fields', async ({ page }) => {
+  const login = new LoginPage(page);
+
+  await login.login('', '');
+
+  await expect(login.error).toBeVisible();
+  await expect(login.error).toContainText('Epic sadface: Username is required');
+  await expect(page).not.toHaveURL(/inventory/);
 });
