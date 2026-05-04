@@ -7,6 +7,10 @@ export class InventoryPage extends BasePage {
   sortDropdown = this.page.locator('[data-test="product_sort_container"]');
   cartButton = this.page.locator('.shopping_cart_link');
 
+  async isLoaded() {
+    await this.title.isVisible();
+  }
+
   async getProductCount() {
     return await this.items.count();
   }

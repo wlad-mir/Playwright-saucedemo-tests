@@ -7,6 +7,10 @@ export class LoginPage extends BasePage {
   loginButton = this.page.getByRole('button', { name: 'Login' });
   error = this.page.locator('[data-test="error"]');
 
+  async isLoaded() {
+    await this.page.getByText('Swag Labs').isVisible();
+  }
+
   async login(user: string, pass: string) {
     await this.username.fill(user);
     await this.password.fill(pass);
