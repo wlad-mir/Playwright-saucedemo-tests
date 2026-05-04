@@ -1,19 +1,11 @@
 import { type Page, type Locator } from '@playwright/test';
+import { BasePage } from './BasePage';
 
-export class LoginPage {
-  readonly page: Page;
-  readonly username: Locator;
-  readonly password: Locator;
-  readonly loginButton: Locator;
-  readonly error: Locator;
-
-  constructor(page: Page) {
-    this.page = page;
-    this.username = page.getByPlaceholder('Username');
-    this.password = page.getByPlaceholder('Password');
-    this.loginButton = page.getByRole('button', { name: 'Login' });
-    this.error = page.locator('[data-test="error"]');
-  }
+export class LoginPage extends BasePage {
+  username = this.page.getByPlaceholder('Username');
+  password = this.page.getByPlaceholder('Password');
+  loginButton = this.page.getByRole('button', { name: 'Login' });
+  error = this.page.locator('[data-test="error"]');
 
   async login(user: string, pass: string) {
     await this.username.fill(user);
