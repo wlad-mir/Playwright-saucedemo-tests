@@ -7,6 +7,10 @@ export class LoginPage extends BasePage {
   loginButton = this.page.getByRole('button', { name: 'Login' });
   error = this.page.locator('[data-test="error"]');
 
+  async open() {
+    await this.page.goto('https://www.saucedemo.com/');
+  }
+
   async isLoaded() {
     await this.page.getByText('Swag Labs').isVisible();
   }

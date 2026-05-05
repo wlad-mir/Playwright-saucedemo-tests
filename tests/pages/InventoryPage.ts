@@ -1,4 +1,4 @@
-import { type Page, type Locator } from '@playwright/test';
+import { type Page, type Locator, expect } from '@playwright/test';
 import { BasePage } from './BasePage';
 
 export class InventoryPage extends BasePage {
@@ -9,6 +9,7 @@ export class InventoryPage extends BasePage {
 
   async isLoaded() {
     await this.title.isVisible();
+    await expect(this.page).toHaveURL(/inventory/);
   }
 
   async getProductCount() {
