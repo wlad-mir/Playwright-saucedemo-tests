@@ -17,7 +17,7 @@ export class InventoryPage extends BasePage {
   }
 
   async sortBy(option: string) {
-    await this.sortDropdown.selectOption(option); // error
+    await this.sortDropdown.selectOption(option);
   }
 
   async openCart() {
@@ -31,5 +31,21 @@ export class InventoryPage extends BasePage {
   async getProductPrices(): Promise<number[]> {
     const prices = await this.page.locator('.inventory_item_price').allInnerTexts();
     return prices.map((p) => Number(p.replace('$', '')));
+  }
+
+  async addToCart(productName: string) {
+    const item = this.page.locator('.inventory_item').filter({
+      has: this.page.locator('.inventory_item_name', { hasText: productName }),
+    });
+
+    await item.locator('button').click();
+  }
+
+  async getCartBadgeCount(): Promise<number> {
+    const badge = this.page.locator('.shopping_cart_badge');
+    if (await badge.isVisible()) {
+      return Number(await badge.innerText());
+    }
+    return 0;
   }
 }
