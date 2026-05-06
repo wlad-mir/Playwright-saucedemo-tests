@@ -94,9 +94,9 @@ npm install
 
 BasePage (abstract)
 
--stores the page
+- stores the page
 
--defines the required isLoaded() method
+- defines the required isLoaded() method
 
 LoginPage
 
@@ -122,11 +122,11 @@ CartPage
 
 Checkout Pages
 
-- Checkout Step One
+- Step One → Form
 
-- Checkout Overview → confirmation
+- Overview → Confirmation
 
-- Checkout complete → final screen
+- Complete → Final Screen
 
 🎓 Author
 
