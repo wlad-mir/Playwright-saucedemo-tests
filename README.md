@@ -82,11 +82,11 @@ npm install
 
 ## ▶ Running tests
 
-npx playwright test
+- npx playwright test
 
 ## Launch in UI mode:
 
-npx playwright test --ui
+- npx playwright test --ui
 
 ---
 
@@ -94,39 +94,39 @@ npx playwright test --ui
 
 BasePage (abstract)
 
-# stores the page
+-stores the page
 
-# defines the required isLoaded() method
+-defines the required isLoaded() method
 
 LoginPage
 
-# open() method
+- open() method
 
-# login() method
+- login() method
 
 InventoryPage
 
-# sort() method
+- sort() method
 
-# add() method
+- add() method
 
-# remove() methoding
+- remove() methoding
 
-# cart badge
+- cart badge
 
 CartPage
 
-# checkout transition
+- checkout transition
 
-# removing items
+- removing items
 
 Checkout Pages
 
-## Checkout Step One
+- Checkout Step One
 
-## Checkout Overview → confirmation
+- Checkout Overview → confirmation
 
-## Checkout complete → final screen
+- Checkout complete → final screen
 
 🎓 Author
 
