@@ -25,7 +25,7 @@ test('complete checkout flow', async ({ page }) => {
   await cart.clickCheckout();
   await stepOne.isLoaded();
 
-  await stepOne.fillForm('Tereza', 'QA', '12345');
+  await stepOne.fillForm('Wlad-mir', 'QA', '881190');
   await overview.isLoaded();
 
   await overview.finishOrder();
