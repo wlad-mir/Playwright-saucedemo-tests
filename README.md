@@ -41,23 +41,22 @@ from login to checkout.
 ---
 
 ## 📂 Project structure
-
-project/
->>> pages/
->>>>> BasePage.ts
->>>>> LoginPage.ts
->>>>> InventoryPage.ts
->>>>> CartPage.ts
->>>>> CheckoutStepOnePage.ts
->>>>> CheckoutOverviewPage.ts
->>>>> CheckoutCompletePage.ts
->>> tests/
->>>>> loginTest.spec.ts
->>>>> sortingTest.spec.ts
->>>>> cartTest.spec.ts
->>>>> checkoutFlow.spec.ts
->>> playwright.config.ts
->>> README.md
+-  [x] project/
+     -  [x]  pages/
+        - [x]  BasePage.ts
+        - [x]  LoginPage.ts
+        - [x]  InventoryPage.ts
+        - [x]  CartPage.ts
+        - [x]  CheckoutStepOnePage.ts
+        - [x]  CheckoutOverviewPage.ts
+        - [x]  CheckoutCompletePage.ts
+      - [x]  tests/
+        - [x]  loginTest.spec.ts
+        - [x]  sortingTest.spec.ts
+        - [x]  cartTest.spec.ts
+        - [x]  checkoutFlow.spec.ts
+      - [x]  playwright.config.ts
+    - [x]  README.md
 
 ---
 
