@@ -44,23 +44,23 @@ from login to checkout.
 
 project/
 │
-├── pages/
-│   ├── BasePage.ts
-│   ├── LoginPage.ts
-│   ├── InventoryPage.ts
-│   ├── CartPage.ts
-│   ├── CheckoutStepOnePage.ts
-│   ├── CheckoutOverviewPage.ts
-│   └── CheckoutCompletePage.ts
+├-- pages/
+│ ├-- BasePage.ts
+│ ├-- LoginPage.ts
+│ ├-- InventoryPage.ts
+│ ├-- CartPage.ts
+│ ├-- CheckoutStepOnePage.ts
+│ ├-- CheckoutOverviewPage.ts
+│ └-- CheckoutCompletePage.ts
 │
-├── tests/
-│   ├── loginTest.spec.ts
-│   ├── sortingTest.spec.ts
-│   ├── cartTest.spec.ts
-│   └── checkoutFlow.spec.ts
+├-- tests/
+│ ├-- loginTest.spec.ts
+│ ├-- sortingTest.spec.ts
+│ ├-- cartTest.spec.ts
+│ └-- checkoutFlow.spec.ts
 │
-├── playwright.config.ts
-└── README.md
+├-- playwright.config.ts
+└-- README.md
 
 ---
 
